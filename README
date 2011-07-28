@@ -1,0 +1,12 @@
+A simple php script that can sync local files to the Amazons s3 storage.  The script is rather simple
+so no complex diffs of data or dual sync is enabled.  However, the script does check and see if a file
+has already been synced before uploading so it won't kill your bandwidth.  I wrote the script in about
+an hour to sync files from my home NAS to Amazon.  The script is run by a cronentry on a weekly basis
+and works pretty well.  You'll need to install the PEAR amazon php sdk first and configure it
+accodingly before running this script  Usage as follows:
+
+
+s3.php <bucket name> <directory>
+
+
+Where the bucket has already been created.
