@@ -1,12 +1,27 @@
 A simple php script that can sync local files to the Amazons s3 storage.  The script is rather simple
 so no complex diffs of data or dual sync is enabled.  However, the script does check and see if a file
 has already been synced before uploading so it won't kill your bandwidth.  I wrote the script in about
-an hour to sync files from my home NAS to Amazon.  The script is run by a cronentry on a weekly basis
+an hour to sync files from my home NAS to Amazon.  The script is run by a cron entry on a weekly basis
 and works pretty well.  You'll need to install the PEAR amazon php sdk first and configure it
-accodingly before running this script  Usage as follows:
+accordingly before running this script  Usage as follows:
 
 
 s3.php <bucket name> <directory>
 
 
 Where the bucket has already been created.
+
+
+If you want to use this to sync files from your NetgearNAS to s3, follow these steps:
+
+
+1. Install PHP: http://www.readynas.com/forum/viewtopic.php?f=47&t=35880
+2. Make sure you have ssh access, install it if you don't.
+3. Get the source for the script from this page.
+4. Install the amazon s3 php sdk via the pear channel.
+5. Edit the config file and supply you're s3 authentication credentials
+6. Setup you're crontab to look something like this:
+
+0 3 * * 2 /root/s3sync/s3.php <bucket name> <directory>
+
+HTH
